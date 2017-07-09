@@ -29,7 +29,7 @@ test:
 about:
   home: https://github.com/bittner/django-apptemplates
   license: MIT
-  license_file: LICENSE.txt
+  # license_file: LICENSE.txt
   summary: 'Django template loader that allows you to load and override a template from a specific Django application.'
 
 extra:
