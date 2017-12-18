@@ -1,22 +1,22 @@
-{% set version = "1.3" %}
+{% set version = "1.4" %}
 
 package:
   name: django-apptemplates
   version: {{ version }}
 
 source:
-  fn: django-apptemplates-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/d/django-apptemplates/django-apptemplates-{{ version }}.tar.gz
-  sha256: a3b376181eb6306cfc7532359d4aaf83cf501eff865c8f9bfdf9b5e3930f5986
+  sha256: 9e8b33b156c57ac2a7f6d747faaddfeb27682d7441375e1ee88c220557b36786
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
     - python
-    - setuptools
+    - pip
   run:
     - python
     - django
