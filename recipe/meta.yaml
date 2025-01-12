@@ -5,20 +5,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/d/django-apptemplates/django-apptemplates-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/d/django-apptemplates/django-apptemplates-{{ version }}.tar.gz
   sha256: c2c46afd3d90827c1d821f137d59e430cb203649aa275b9c2763c871d7545d3f
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
-  build:
-    - python
+  host:
+    - python {{ python_min }}
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - django
 
 test:
@@ -28,6 +28,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/bittner/django-apptemplates
